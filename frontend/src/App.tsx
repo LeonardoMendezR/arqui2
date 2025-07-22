@@ -6,32 +6,20 @@ import AdminDashboard from './pages/AdminDashboard';
 import Detail from './pages/Detail';
 import Results from './pages/Results';
 import Confirmation from './pages/Confirmation';
-import './app.css'; // ✅ Agregá esta línea
+import './app.css';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
-          {/* Página principal - Login */}
           <Route path="/" element={<Login />} />
-          
-          {/* Dashboard para usuarios autenticados */}
           <Route path="/dashboard" element={<Dashboard />} />
-          
-          {/* Panel de administración (solo admins) */}
+          <Route path="/reservas" element={<Dashboard />} /> {/* reutiliza Dashboard */}
           <Route path="/admin" element={<AdminDashboard />} />
-          
-          {/* Resultados de búsqueda */}
           <Route path="/results" element={<Results />} />
-          
-          {/* Detalles del hotel */}
           <Route path="/hotel/:id" element={<Detail />} />
-          
-          {/* Confirmación de reserva */}
           <Route path="/confirmation" element={<Confirmation />} />
-          
-          {/* Ruta por defecto - redirige a login */}
           <Route path="*" element={<Login />} />
         </Routes>
       </div>
