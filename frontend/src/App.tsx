@@ -6,7 +6,6 @@ import AdminDashboard from './pages/AdminDashboard';
 import Detail from './pages/Detail';
 import Results from './pages/Results';
 import Confirmation from './pages/Confirmation';
-import './app.css';
 
 function App() {
   return (

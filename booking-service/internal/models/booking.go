@@ -14,18 +14,19 @@ const (
 
 // User representa un usuario del sistema
 type User struct {
-	ID          int       `json:"id" db:"id"`
-	Email       string    `json:"email" db:"email" validate:"required,email"`
-	PasswordHash string   `json:"-" db:"password_hash"`
-	FirstName   string    `json:"first_name" db:"first_name" validate:"required,min=2,max=50"`
-	LastName    string    `json:"last_name" db:"last_name" validate:"required,min=2,max=50"`
-	Role        UserRole  `json:"role" db:"role"` // ← LÍNEA AGREGADA
-	Phone       string    `json:"phone" db:"phone"`
-	DateOfBirth *time.Time `json:"date_of_birth" db:"date_of_birth"`
-	CreatedAt   time.Time `json:"created_at" db:"created_at"`
-	UpdatedAt   time.Time `json:"updated_at" db:"updated_at"`
-	IsActive    bool      `json:"is_active" db:"is_active"`
+	ID           int       `json:"id"`
+	Email        string    `json:"email"`
+	PasswordHash string    `json:"-"`
+	FirstName    string    `json:"first_name"`
+	LastName     string    `json:"last_name"`
+	Phone        string    `json:"phone"`
+	DateOfBirth  time.Time `json:"date_of_birth"`
+	CreatedAt    time.Time `json:"created_at"`
+	UpdatedAt    time.Time `json:"updated_at"`
+	IsActive     bool      `json:"is_active"`
+	Role         UserRole  `json:"role"` // ← CAMBIO AQUÍ
 }
+
 
 // IsAdmin verifica si el usuario es administrador
 func (u *User) IsAdmin() bool {
