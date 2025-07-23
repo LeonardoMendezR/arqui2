@@ -88,9 +88,8 @@ const Login: React.FC = () => {
             Sistema completo de reservas de hoteles con microservicios
           </p>
           <div className="test-accounts">
-            <div>🔐 Cuentas de prueba:</div>
+            <div>🔐 Cuenta de prueba:</div>
             <div><strong>Admin:</strong> admin@hotelmanager.com / password</div>
-            <div><strong>Usuario:</strong> testfinal@ucc.edu.ar / password</div>
           </div>
         </div>
 
