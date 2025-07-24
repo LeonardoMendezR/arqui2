@@ -190,14 +190,30 @@ services:
       - hotel-service
       - search-service
       - booking-service
+  nginx-proxy:
+    image: nginx:stable
+    container_name: hotel_nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./frontend/build:/usr/share/nginx/html:ro
+    depends_on:
+      - frontend
+      - hotel-service
+      - booking-service
+      - search-service
+    networks:
+      - hotel_network
 
 volumes:
   mongodb_data:
   mysql_data:
   rabbitmq_data:
   solr_data:
-  hotel_uploads:  # Volumen para imágenes de hoteles
+  hotel_uploads:
 
 networks:
   hotel_network:
     driver: bridge
+
